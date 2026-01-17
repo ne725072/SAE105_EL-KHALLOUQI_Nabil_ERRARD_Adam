@@ -103,8 +103,112 @@ for i in range(len(liste)):
 for i in range(len(dates_2025_hebdo_triee)):
     dates_2025_hebdo_triee[i] = dates_2025_hebdo_triee[i][0] + '-' + dates_2025_hebdo_triee[i][1] + '-' + dates_2025_hebdo_triee[i][2] 
 
+#--------------------------------------------------------------------------------------------------------------------------------------------------------
 
+dates_janvier_2025 = []
+conso_janvier_2025 =[]
+
+for i in range(len(dates)):
+    if i in indice_quotidien and dates[i][0] == '2025' and dates[i][1] == '01':
+        dates_janvier_2025.append(dates[i])
+        conso_janvier_2025.append(conso_corrigee[i])
+
+liste = []
+
+for i in range(len(dates_janvier_2025)):
+    temp = int(dates_janvier_2025[i][0] + dates_janvier_2025[i][1] + dates_janvier_2025[i][2])
+    liste.append([temp, dates_janvier_2025[i], conso_janvier_2025[i]])
+    
+liste.sort()
+
+dates_janvier_2025_triee = []
+conso_janvier_2025_triee = []
+
+for i in range(len(liste)):
+    dates_janvier_2025_triee.append(liste[i][1])
+    conso_janvier_2025_triee.append(liste[i][2])
+    
+for i in range(len(dates_janvier_2025_triee)):
+    dates_janvier_2025_triee[i] = dates_janvier_2025_triee[i][0] + '-' + dates_janvier_2025_triee[i][1] + '-' + dates_janvier_2025_triee[i][2] 
+    
+#--------------------------------------------------------------------------------------------------------------------------------------------------------    
+    
+dates_février_2025 = []
+conso_février_2025 =[]
+
+for i in range(len(dates)):
+    if i in indice_quotidien and dates[i][0] == '2025' and dates[i][1] == '02':
+        dates_février_2025.append(dates[i])
+        conso_février_2025.append(conso_corrigee[i])
+
+liste = []
+
+for i in range(len(dates_février_2025)):
+    temp = int(dates_février_2025[i][0] + dates_février_2025[i][1] + dates_février_2025[i][2])
+    liste.append([temp, dates_février_2025[i], conso_février_2025[i]])
+    
+liste.sort()
+
+dates_février_2025_triee = []
+conso_février_2025_triee = []
+
+for i in range(len(liste)):
+    dates_février_2025_triee.append(liste[i][1])
+    conso_février_2025_triee.append(liste[i][2])
+    
+for i in range(len(dates_février_2025_triee)):
+    dates_février_2025_triee[i] = dates_février_2025_triee[i][0] + '-' + dates_février_2025_triee[i][1] + '-' + dates_février_2025_triee[i][2]
+    
+#--------------------------------------------------------------------------------------------------------------------------------------------------------    
+
+dates_juillet_2025 = []
+conso_juillet_2025 =[]
+
+for i in range(len(dates)):
+    if i in indice_quotidien and dates[i][0] == '2025' and dates[i][1] == '07':
+        dates_juillet_2025.append(dates[i])
+        conso_juillet_2025.append(conso_corrigee[i])
+
+liste = []
+
+for i in range(len(dates_juillet_2025)):
+    temp = int(dates_juillet_2025[i][0] + dates_juillet_2025[i][1] + dates_juillet_2025[i][2])
+    liste.append([temp, dates_juillet_2025[i], conso_juillet_2025[i]])
+    
+liste.sort()
+
+dates_juillet_2025_triee = []
+conso_juillet_2025_triee = []
+
+for i in range(len(liste)):
+    dates_juillet_2025_triee.append(liste[i][1])
+    conso_juillet_2025_triee.append(liste[i][2])
+    
+for i in range(len(dates_juillet_2025_triee)):
+    dates_juillet_2025_triee[i] = dates_juillet_2025_triee[i][0] + '-' + dates_juillet_2025_triee[i][1] + '-' + dates_juillet_2025_triee[i][2]
+    
+    
+'''
 pylab.figure()
 pylab.plot(dates_2025_hebdo_triee, conso_2025_hebdo_triee, label = 'Consommation hebdomadaire 2025')
+pylab.xticks(dates_2025_hebdo_triee[::4], rotation=45)
+pylab.legend()
+pylab.show()
+'''
+pylab.figure()
+pylab.plot(dates_janvier_2025_triee, conso_janvier_2025_triee, label = 'Consommation janvier 2025')
+pylab.xticks(dates_janvier_2025_triee[::4], rotation=45)
+pylab.legend()
+pylab.show()
+
+pylab.figure()
+pylab.plot(dates_février_2025_triee, conso_février_2025_triee, label = 'Consommation février 2025')
+pylab.xticks(dates_février_2025_triee[::4], rotation=45)
+pylab.legend()
+pylab.show()
+
+pylab.figure()
+pylab.plot(dates_juillet_2025_triee, conso_juillet_2025_triee, label = 'Consommation juillet 2025')
+pylab.xticks(dates_juillet_2025_triee[::4], rotation=45)
 pylab.legend()
 pylab.show()
