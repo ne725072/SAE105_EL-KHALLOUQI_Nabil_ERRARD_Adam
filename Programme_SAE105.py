@@ -5,8 +5,8 @@ maille = []
 dates = []
 conso_corrigee = []
 semaines = []
-annees = []
-donnees = []
+borne_inf = []
+borne_sup = []
 
 with open('Consommation.csv',newline='') as csvfile:
     reader = csv.reader(csvfile,delimiter=';')
@@ -15,32 +15,32 @@ with open('Consommation.csv',newline='') as csvfile:
         maille.append(row[0])
         dates.append(row[1])
         semaines.append(row[3])
-        annees.append(row[4])
-        donnees.append(row[5])
         conso_corrigee.append(row[6])
+        borne_inf.append(row[7])
+        borne_sup.append(row[8])
 
 del maille[0]
 del dates[0]
 del semaines[0]
-del annees[0]
-del donnees[0]
 del conso_corrigee[0]
+del borne_inf[0]
+del borne_sup[0]
 
-i_supr = []
+i_supr_conso = []
 
 for i in range(len(conso_corrigee)):
     if 'NA' in conso_corrigee[i]:
-       i_supr.append(i)
-     
-for i in range(len(i_supr)-1,-1,-1) :
+       i_supr_conso.append(i)
+        
+for i in range(len(i_supr_conso)-1,-1,-1) :
     
-    del conso_corrigee[i_supr[i]]
-    del maille[i_supr[i]]
-    del dates[i_supr[i]]
-    del semaines[i_supr[i]]
-    del annees[i_supr[i]]
-    del donnees[i_supr[i]]
-            
+    del conso_corrigee[i_supr_conso[i]]
+    del maille[i_supr_conso[i]]
+    del dates[i_supr_conso[i]]
+    del semaines[i_supr_conso[i]]
+    del borne_inf[i_supr_conso[i]]
+    del borne_sup[i_supr_conso[i]]
+    
 for i in range(len(conso_corrigee)):
         conso_corrigee[i] = conso_corrigee[i].replace(",",".")
         conso_corrigee[i] = float(conso_corrigee[i])
@@ -247,7 +247,52 @@ for i in range(len(liste)):
 for i in range(len(dates_juillet_2025_triee)):
     dates_juillet_2025_triee[i] = dates_juillet_2025_triee[i][0] + '-' + dates_juillet_2025_triee[i][1] + '-' + dates_juillet_2025_triee[i][2]
     
-    
+#------------------------------------------------------------------------------------------------------------------------------------------
+dates_2025_hebdo = []
+conso_2025_hebdo = []
+borne_inf_2025_hebdo = []
+borne_sup_2025_hebdo = []
+
+for i in range(len(dates)):
+    if i in indice_hebdo and dates[i][0] == '2025':
+       if 'NA' not in str(conso_corrigee[i]) and 'NA' not in str(borne_inf[i]) and 'NA' not in str(borne_sup[i]):
+            dates_2025_hebdo.append(dates[i])
+            conso_2025_hebdo.append(conso_corrigee[i])
+            borne_inf_2025_hebdo.append(borne_inf[i])
+            borne_sup_2025_hebdo.append(borne_sup[i])
+
+for i in range(len(conso_2025_hebdo)):
+    if type(conso_2025_hebdo[i]) != float:
+        conso_2025_hebdo[i] = float(conso_2025_hebdo[i].replace(',', '.'))
+    if type(borne_inf_2025_hebdo[i]) != float:
+        borne_inf_2025_hebdo[i] = float(borne_inf_2025_hebdo[i].replace(',', '.'))
+    if type(borne_sup_2025_hebdo[i]) != float:
+        borne_sup_2025_hebdo[i] = float(borne_sup_2025_hebdo[i].replace(',', '.'))  
+
+liste = []
+for i in range(len(dates_2025_hebdo)):
+    trie_valeurs = int(dates_2025_hebdo[i][0] + dates_2025_hebdo[i][1] + dates_2025_hebdo[i][2])
+    liste.append([trie_valeurs, dates_2025_hebdo[i], conso_2025_hebdo[i], borne_inf_2025_hebdo[i], borne_sup_2025_hebdo[i]])
+
+liste.sort()
+
+dates_2025_hebdo_triee = []
+conso_2025_hebdo_triee = []
+borne_inf_2025_hebdo_triee = []
+borne_sup_2025_hebdo_triee = []
+
+for i in range(len(liste)):
+    dates_2025_hebdo_triee.append(liste[i][1])
+    conso_2025_hebdo_triee.append(liste[i][2])
+    borne_inf_2025_hebdo_triee.append(liste[i][3])
+    borne_sup_2025_hebdo_triee.append(liste[i][4])
+
+for i in range(len(dates_2025_hebdo_triee)):
+    dates_2025_hebdo_triee[i] = dates_2025_hebdo_triee[i][0] + '-' + dates_2025_hebdo_triee[i][1] + '-' + dates_2025_hebdo_triee[i][2]
+
+
+#------------------------------------------------------------------------------------------------------------------------------------------
+   
 '''
 pylab.figure()
 pylab.plot(dates_2025_hebdo_triee, conso_2025_hebdo_triee, label = 'Consommation hebdomadaire 2025')
@@ -334,3 +379,21 @@ pylab.show()
 '''
 
 #------------------------------------------------------------------------------------------------------------------------------------------
+
+'''
+pylab.figure()
+pylab.plot(dates_2025_hebdo_triee, conso_2025_hebdo_triee, label='Consommation', color = 'r')
+pylab.plot(dates_2025_hebdo_triee, borne_inf_2025_hebdo, '--', label='Borne inf')
+pylab.plot(dates_2025_hebdo_triee, borne_sup_2025_hebdo, '--', label='Borne sup')
+pylab.fill_between(
+    dates_2025_hebdo_triee,
+    borne_inf_2025_hebdo,
+    borne_sup_2025_hebdo,
+    alpha=0.3,
+    label='Intervalle de référence'
+)
+
+pylab.legend()
+pylab.xticks(rotation=45)
+pylab.show()
+'''
