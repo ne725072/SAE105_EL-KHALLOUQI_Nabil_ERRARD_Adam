@@ -248,6 +248,96 @@ for i in range(len(dates_juillet_2025_triee)):
     dates_juillet_2025_triee[i] = dates_juillet_2025_triee[i][0] + '-' + dates_juillet_2025_triee[i][1] + '-' + dates_juillet_2025_triee[i][2]
     
 #------------------------------------------------------------------------------------------------------------------------------------------
+
+
+'''
+pylab.figure()
+pylab.plot(dates_2025_hebdo_triee, conso_2025_hebdo_triee, label = 'Consommation hebdomadaire 2025')
+pylab.xticks(dates_2025_hebdo_triee[::4], rotation=45)
+pylab.legend()
+pylab.show()
+
+
+pylab.figure()
+pylab.plot(dates_hiver, conso_hiver, label='Hiver', color='blue')
+pylab.plot(dates_printemps, conso_printemps, label='Printemps', color='green')
+pylab.plot(dates_ete, conso_ete, label='Été', color='orange')
+pylab.plot(dates_automne, conso_automne, label='Automne', color='brown')
+pylab.legend()
+pylab.xticks(dates_2025_hebdo_triee[::4], rotation=45)
+pylab.xlabel("Date")
+pylab.ylabel("Consommation corrigée")
+pylab.title("Consommation hebdomadaire 2025 par saison")
+pylab.show()
+'''
+
+#------------------------------------------------------------------------------------------------------------------------------------------
+
+
+pylab.figure()
+pylab.plot(dates_février_2025_triee, conso_février_2025_triee, label = 'Consommation février 2025')
+pylab.xticks(dates_février_2025_triee[::4], rotation=45)
+pylab.legend()
+pylab.show()
+
+
+#------------------------------------------------------------------------------------------------------------------------------------------
+
+
+pylab.figure()
+pylab.plot(dates_avril_2025_triee, conso_avril_2025_triee, label = 'Consommation avril 2025')
+pylab.xticks(dates_avril_2025_triee[::4], rotation=45)
+pylab.legend()
+pylab.show()
+
+
+#------------------------------------------------------------------------------------------------------------------------------------------
+
+
+pylab.figure()
+pylab.plot(dates_octobre_2025_triee, conso_octobre_2025_triee, label = 'Consommation octobre 2025')
+pylab.xticks(dates_octobre_2025_triee[::4], rotation=45)
+pylab.legend()
+pylab.show()
+
+
+#------------------------------------------------------------------------------------------------------------------------------------------
+
+
+pylab.figure()
+pylab.plot(dates_juillet_2025_triee, conso_juillet_2025_triee, label = 'Consommation juillet 2025')
+pylab.xticks(dates_juillet_2025_triee[::4], rotation=45)
+pylab.legend()
+pylab.show()
+
+
+#------------------------------------------------------------------------------------------------------------------------------------------
+
+'''
+jours = []
+for i in range(1,29):
+    jours.append(i)
+    
+conso_28_février = conso_février_2025_triee[0:28]
+conso_28_avril = conso_avril_2025_triee[0:28]    
+conso_28_juillet = conso_juillet_2025_triee[0:28]    
+conso_28_octobre = conso_octobre_2025_triee[0:28]
+
+
+pylab.figure()
+pylab.plot(jours, conso_28_février, label='Février (hiver)')
+pylab.plot(jours, conso_28_avril, label='Avril (printemps)')
+pylab.plot(jours, conso_28_juillet, label='Juillet (été)')
+pylab.plot(jours, conso_28_octobre, label='Octobre (automne)')
+pylab.xlabel("Jour du mois (1 à 28)")
+pylab.ylabel("Consommation corrigée")
+pylab.title("Comparaison : un mois par saison (jours 1 à 28)")
+pylab.legend()
+pylab.show()
+'''
+
+#------------------------------------------------------------------------------------------------------------------------------------------
+
 dates_2025_hebdo = []
 conso_2025_hebdo = []
 borne_inf_2025_hebdo = []
@@ -289,97 +379,7 @@ for i in range(len(liste)):
 
 for i in range(len(dates_2025_hebdo_triee)):
     dates_2025_hebdo_triee[i] = dates_2025_hebdo_triee[i][0] + '-' + dates_2025_hebdo_triee[i][1] + '-' + dates_2025_hebdo_triee[i][2]
-
-
-#------------------------------------------------------------------------------------------------------------------------------------------
-   
-'''
-pylab.figure()
-pylab.plot(dates_2025_hebdo_triee, conso_2025_hebdo_triee, label = 'Consommation hebdomadaire 2025')
-pylab.xticks(dates_2025_hebdo_triee[::4], rotation=45)
-pylab.legend()
-pylab.show()
-
-
-pylab.figure()
-pylab.plot(dates_hiver, conso_hiver, label='Hiver', color='blue')
-pylab.plot(dates_printemps, conso_printemps, label='Printemps', color='green')
-pylab.plot(dates_ete, conso_ete, label='Été', color='orange')
-pylab.plot(dates_automne, conso_automne, label='Automne', color='brown')
-pylab.legend()
-pylab.xticks(dates_2025_hebdo_triee[::4], rotation=45)
-pylab.xlabel("Date")
-pylab.ylabel("Consommation corrigée")
-pylab.title("Consommation hebdomadaire 2025 par saison")
-pylab.show()
-'''
-
-#------------------------------------------------------------------------------------------------------------------------------------------
-
-'''
-pylab.figure()
-pylab.plot(dates_février_2025_triee, conso_février_2025_triee, label = 'Consommation février 2025')
-pylab.xticks(dates_février_2025_triee[::4], rotation=45)
-pylab.legend()
-pylab.show()
-'''
-
-#------------------------------------------------------------------------------------------------------------------------------------------
-
-'''
-pylab.figure()
-pylab.plot(dates_avril_2025_triee, conso_avril_2025_triee, label = 'Consommation avril 2025')
-pylab.xticks(dates_avril_2025_triee[::4], rotation=45)
-pylab.legend()
-pylab.show()
-'''
-
-#------------------------------------------------------------------------------------------------------------------------------------------
-
-'''
-pylab.figure()
-pylab.plot(dates_octobre_2025_triee, conso_octobre_2025_triee, label = 'Consommation octobre 2025')
-pylab.xticks(dates_octobre_2025_triee[::4], rotation=45)
-pylab.legend()
-pylab.show()
-'''
-
-#------------------------------------------------------------------------------------------------------------------------------------------
-
-'''
-pylab.figure()
-pylab.plot(dates_juillet_2025_triee, conso_juillet_2025_triee, label = 'Consommation juillet 2025')
-pylab.xticks(dates_juillet_2025_triee[::4], rotation=45)
-pylab.legend()
-pylab.show()
-'''
-
-#------------------------------------------------------------------------------------------------------------------------------------------
-
-jours = []
-for i in range(1,29):
-    jours.append(i)
     
-conso_28_février = conso_février_2025_triee[0:28]
-conso_28_avril = conso_avril_2025_triee[0:28]    
-conso_28_juillet = conso_juillet_2025_triee[0:28]    
-conso_28_octobre = conso_octobre_2025_triee[0:28]
-
-'''
-pylab.figure()
-pylab.plot(jours, conso_28_février, label='Février (hiver)')
-pylab.plot(jours, conso_28_avril, label='Avril (printemps)')
-pylab.plot(jours, conso_28_juillet, label='Juillet (été)')
-pylab.plot(jours, conso_28_octobre, label='Octobre (automne)')
-pylab.xlabel("Jour du mois (1 à 28)")
-pylab.ylabel("Consommation corrigée")
-pylab.title("Comparaison : un mois par saison (jours 1 à 28)")
-pylab.legend()
-pylab.show()
-'''
-
-#------------------------------------------------------------------------------------------------------------------------------------------
-
 '''
 pylab.figure()
 pylab.plot(dates_2025_hebdo_triee, conso_2025_hebdo_triee, label='Consommation', color = 'r')
